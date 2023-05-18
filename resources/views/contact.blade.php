@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>Welcome to contact page</h1>
-        
+        <a href="{{route('about.page')}}">About</a>
         <script src="" async defer></script>
     </body>
 </html>

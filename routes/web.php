@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\demo;
+use App\Http\Middleware\CheckAge;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,8 @@ use App\Http\Controllers\demo;
 
 Route::get('/', function () {
     return view('welcome');
-    
 });
-Route::get('/about',[Demo::class,'Index']);
- 
-Route::get('/contact', [Demo::class,'Sec']);
+Route::controller(demo::class)->group(function () {
+    Route::get('/about', 'Index')->name('about.page')->middleware('check');
+    Route::get('/contact','Sec');
+});
